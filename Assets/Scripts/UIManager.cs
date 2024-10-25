@@ -5,18 +5,19 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    // Singleton instance
     public static UIManager Instance;
 
     [Header("UI Panels")]
     public GameObject endGamePanel;
+
+    [Header("UI Elements")]
+    public TextMeshProUGUI endGameMessageText;
 
     [Header("Buttons")]
     public Button restartButton;
 
     void Awake()
     {
-        // Implement Singleton pattern
         if (Instance == null)
         {
             Instance = this;
@@ -30,7 +31,7 @@ public class UIManager : MonoBehaviour
     void Start()
     {
         if (endGamePanel != null)
-            endGamePanel.SetActive(false); // Ensure it's hidden at start
+            endGamePanel.SetActive(false);
 
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
@@ -39,11 +40,16 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Shows the end game panel.
     /// </summary>
-    public void ShowEndGamePanel()
+    /// <param name="message">The message to display.</param>
+    public void ShowEndGamePanel(string message)
     {
         if (endGamePanel != null)
         {
             endGamePanel.SetActive(true);
+            if (endGameMessageText != null)
+            {
+                endGameMessageText.text = message;
+            }
         }
     }
 

@@ -1,33 +1,35 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
     [Header("Energy Settings")]
-    public float maxEnergy = 100f;             // Maximum energy
-    public float currentEnergy;                // Current energy
-    public float energyRegenRate = 5f;         // Energy regenerated per second
+    public float maxEnergy = 100f;
+    public float currentEnergy;
+    public float energyRegenRate = 5f;
 
     [Header("Energy Costs")]
-    public float sprintEnergyCostPerSecond = 10f;  // Energy cost per second while sprinting
-    public float meleeAttackEnergyCost = 15f;      // Energy cost per melee attack
+    public float sprintEnergyCostPerSecond = 10f;
+    public float meleeAttackEnergyCost = 15f;
 
     [Header("UI Elements")]
-    public TextMeshProUGUI energyText;              // Reference to EnergyText UI
+    public Slider energySlider;
+    public Slider easeEnergySlider;
+    public float lerpSpeed = 0.01f;
 
     private bool isSprinting = false;
 
     void Start()
     {
-        // Initialize energy to maximum at the start
         currentEnergy = maxEnergy;
         UpdateEnergyUI();
     }
 
     void Update()
     {
+        UpdateEnergyUI();
         HandleEnergyRegeneration();
-        HandleInput(); // For testing purposes
+        HandleInput();
     }
 
     /// <summary>
@@ -37,10 +39,8 @@ public class PlayerEnergy : MonoBehaviour
     {
         if (!isSprinting)
         {
-            // Regenerate energy over time
             currentEnergy += energyRegenRate * Time.deltaTime;
             currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
-
             UpdateEnergyUI();
         }
     }
@@ -53,8 +53,23 @@ public class PlayerEnergy : MonoBehaviour
     {
         currentEnergy -= amount;
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
-
         UpdateEnergyUI();
+    }
+
+    /// <summary>
+    /// Updates the Energy UI.
+    /// </summary>
+    private void UpdateEnergyUI()
+    {
+        if (energySlider.value != currentEnergy)
+        {
+            energySlider.value = currentEnergy;
+        }
+
+        if (energySlider.value != easeEnergySlider.value)
+        {
+            easeEnergySlider.value = Mathf.Lerp(easeEnergySlider.value, currentEnergy, lerpSpeed);
+        }
     }
 
     /// <summary>
@@ -62,7 +77,6 @@ public class PlayerEnergy : MonoBehaviour
     /// </summary>
     void HandleInput()
     {
-        // Simulate sprinting when holding Left Shift
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprinting = true;
@@ -75,7 +89,6 @@ public class PlayerEnergy : MonoBehaviour
             else
             {
                 // TODO: Handle out-of-energy state (e.g., stop sprinting)
-                Debug.Log("Out of energy! Cannot sprint.");
             }
         }
         else
@@ -84,30 +97,13 @@ public class PlayerEnergy : MonoBehaviour
             // TODO: Reset player speed to normal
         }
 
-        // Simulate melee attack when pressing Left Mouse Button
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             if (currentEnergy >= meleeAttackEnergyCost)
             {
                 UseEnergy(meleeAttackEnergyCost);
                 // TODO: Execute melee attack
-                Debug.Log("Performed melee attack. Current Energy: " + currentEnergy);
             }
-            else
-            {
-                Debug.Log("Not enough energy to perform melee attack.");
-            }
-        }
-    }
-
-    /// <summary>
-    /// Updates the Energy UI text.
-    /// </summary>
-    private void UpdateEnergyUI()
-    {
-        if (energyText != null)
-        {
-            energyText.text = "Energy: " + Mathf.RoundToInt(currentEnergy).ToString();
         }
     }
 }

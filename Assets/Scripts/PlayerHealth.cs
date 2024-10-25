@@ -1,22 +1,29 @@
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
-    public float maxHealth = 100f;     // Maximum health
-    public float currentHealth;        // Current health
+    public float maxHealth = 100f;
+    public float currentHealth;
 
     [Header("UI Elements")]
-    public TextMeshProUGUI healthText; // Reference to HealthText UI
+    public Slider healthSlider;
+    public Slider easeHealthSlider;
+    public float lerpSpeed = 0.01f;
 
     private bool isDead = false;
 
     void Start()
     {
-        // Initialize health to maximum at the start
         currentHealth = maxHealth;
         UpdateHealthUI();
+    }
+
+    void Update()
+    {
+        UpdateHealthUI();
+        HandleInput();
     }
 
     /// <summary>
@@ -30,7 +37,6 @@ public class PlayerHealth : MonoBehaviour
 
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
-
         UpdateHealthUI();
 
         if (currentHealth <= 0f)
@@ -48,9 +54,7 @@ public class PlayerHealth : MonoBehaviour
             return;
 
         currentHealth = 0f;
-
         UpdateHealthUI();
-
         Die();
     }
 
@@ -65,40 +69,47 @@ public class PlayerHealth : MonoBehaviour
         isDead = true;
 
         // TODO: Handle death (play animation, disable controls, etc.)
-        Debug.Log("Player has died.");
 
-        // Show the End Game Panel
-        UIManager.Instance.ShowEndGamePanel();
+        UIManager.Instance.ShowEndGamePanel("Game Over!");
+
+        CameraScroll cameraScroll = Camera.main.GetComponent<CameraScroll>();
+        if (cameraScroll != null)
+        {
+            cameraScroll.StopScrolling();
+        }
 
         // Optionally, disable player controls here
     }
 
     /// <summary>
-    /// Updates the Health UI text.
+    /// Updates the Health UI.
     /// </summary>
     private void UpdateHealthUI()
     {
-        if (healthText != null)
+        if (healthSlider.value != currentHealth)
         {
-            healthText.text = "Health: " + Mathf.RoundToInt(currentHealth).ToString();
+            healthSlider.value = currentHealth;
+        }
+
+        if (healthSlider.value != easeHealthSlider.value)
+        {
+            easeHealthSlider.value = Mathf.Lerp(easeHealthSlider.value, currentHealth, lerpSpeed);
         }
     }
 
-    // Testing inputs
-    void Update()
+    /// <summary>
+    /// Handles input for testing purposes.
+    /// </summary>
+    private void HandleInput()
     {
-        // Simulate taking damage
         if (Input.GetKeyDown(KeyCode.H))
         {
-            TakeDamage(1f); // Adjust damage as needed
-            Debug.Log("Player took 1 damage. Current Health: " + currentHealth);
+            TakeDamage(10f);
         }
 
-        // Simulate instant death
         if (Input.GetKeyDown(KeyCode.K))
         {
             InstantDeath();
-            Debug.Log("Player fell off the roof and died.");
         }
     }
 }
