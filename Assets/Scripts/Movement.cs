@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 2f;
     public float jumpDuration = 0.5f;
     public float jumpCooldown = 1f; 
-    private bool isJumping = false;
+    public bool isJumping = false;
     private bool canJump = true;
 
     private LevelEnd LevelEnd;
@@ -29,11 +29,26 @@ public class Movement : MonoBehaviour
 
     private bool isOnGround = true;
 
+    private Barrier barrier;
+    private bool isAgainstImpassableBarrier;
+    private bool isNearBarrier = false;
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
+        barrier = FindObjectOfType<Barrier>();
+    }
+
+    public void SetBarrierState(bool isBlocked)
+    {
+        isAgainstImpassableBarrier = isBlocked; 
+    }
+
+    public void SetBarrierStatus(bool status)
+    {
+        isNearBarrier = status;
     }
 
     // Update is called once per frame
@@ -56,6 +71,7 @@ public class Movement : MonoBehaviour
         {
             playerHealth.InstantDeath();
         }
+
     }
 
     public void FixedUpdate()
@@ -74,6 +90,34 @@ public class Movement : MonoBehaviour
         {
             moveVelocity = Vector2.zero;
             canJump = false;
+        }
+
+        if (isNearBarrier)
+        {
+            Vector2 playerToBarrier = (barrier.transform.position - transform.position).normalized;
+            float dotProduct = Vector2.Dot(moveVelocity.normalized, playerToBarrier);
+
+            if (dotProduct > 0)
+            {
+                moveVelocity = Vector2.zero;
+            }
+        }
+
+        if (isAgainstImpassableBarrier)
+        {
+            Vector2 playerToBarrier = (GetComponent<Collider2D>().bounds.center - barrier.transform.position).normalized;
+            float dotProduct = Vector2.Dot(moveVelocity.normalized, playerToBarrier);
+
+            if (dotProduct > 0)
+            {
+               
+                float projection = Vector2.Dot(moveVelocity, playerToBarrier);
+                moveVelocity -= projection * playerToBarrier;
+            }
+        }
+        else
+        {
+            canJump = true;
         }
 
         rb.velocity = moveVelocity;
