@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class LevelEnd : MonoBehaviour
 {
+    private Movement movement;
+
+    private void Start()
+    {
+        movement = GameObject.FindWithTag("Player").GetComponent<Movement>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -14,7 +20,10 @@ public class LevelEnd : MonoBehaviour
                 cameraScroll.StopScrolling();
             }
 
-            // Optionally, disable player controls here
+            if (movement != null)
+            {
+                movement.moveVelocity = Vector2.zero;
+            }
         }
     }
 }

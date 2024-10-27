@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -14,10 +15,13 @@ public class PlayerHealth : MonoBehaviour
 
     private bool isDead = false;
 
+    private Animator anim;
+
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,6 +36,7 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="damageAmount">Amount of damage to apply.</param>
     public void TakeDamage(float damageAmount)
     {
+        anim.SetBool("IsDead", true);
         if (isDead)
             return;
 
@@ -70,7 +75,7 @@ public class PlayerHealth : MonoBehaviour
 
         // TODO: Handle death (play animation, disable controls, etc.)
 
-        UIManager.Instance.ShowEndGamePanel("Game Over!");
+        anim.SetBool("IsDead", isDead);
 
         CameraScroll cameraScroll = Camera.main.GetComponent<CameraScroll>();
         if (cameraScroll != null)
@@ -78,7 +83,16 @@ public class PlayerHealth : MonoBehaviour
             cameraScroll.StopScrolling();
         }
 
+        StartCoroutine(ShowEndGamePanelAfterDelay());
+
         // Optionally, disable player controls here
+    }
+
+    private IEnumerator ShowEndGamePanelAfterDelay()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        UIManager.Instance.ShowEndGamePanel("Game Over!");
     }
 
     /// <summary>
