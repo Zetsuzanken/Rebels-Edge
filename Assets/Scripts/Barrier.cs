@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+//script
+
 public class Barrier : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
