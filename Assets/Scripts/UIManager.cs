@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
 
     [Header("Buttons")]
     public Button restartButton;
+    public Button exitButton;
 
     void Awake()
     {
@@ -35,6 +37,9 @@ public class UIManager : MonoBehaviour
 
         if (restartButton != null)
             restartButton.onClick.AddListener(RestartGame);
+
+        if (exitButton != null)
+            exitButton.onClick.AddListener(ExitGame);
     }
 
     /// <summary>
@@ -56,9 +61,18 @@ public class UIManager : MonoBehaviour
     /// <summary>
     /// Restarts the current scene.
     /// </summary>
-    public void RestartGame()
+    private void RestartGame()
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    /// <summary>
+    /// Exits to the main menu.
+    /// </summary>
+    private void ExitGame()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 }

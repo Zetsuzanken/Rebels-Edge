@@ -18,6 +18,7 @@ public class PlayerEnergy : MonoBehaviour
     public float lerpSpeed = 0.01f;
 
     private bool isSprinting = false;
+    private bool isDead = false;
 
     void Start()
     {
@@ -28,7 +29,12 @@ public class PlayerEnergy : MonoBehaviour
     void Update()
     {
         UpdateEnergyUI();
-        HandleEnergyRegeneration();
+
+        if (!isDead)
+        {
+            HandleEnergyRegeneration();
+        }
+
         HandleInput();
     }
 
@@ -51,8 +57,17 @@ public class PlayerEnergy : MonoBehaviour
     /// <param name="amount">Amount of energy to consume.</param>
     public void UseEnergy(float amount)
     {
+        if (isDead) return;
+
         currentEnergy -= amount;
         currentEnergy = Mathf.Clamp(currentEnergy, 0f, maxEnergy);
+        UpdateEnergyUI();
+    }
+
+    public void SetEnergyToZero()
+    {
+        currentEnergy = 0f;
+        isDead = true;
         UpdateEnergyUI();
     }
 
@@ -77,6 +92,8 @@ public class PlayerEnergy : MonoBehaviour
     /// </summary>
     void HandleInput()
     {
+        if (Time.timeScale == 0f || isDead) return;
+
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isSprinting = true;

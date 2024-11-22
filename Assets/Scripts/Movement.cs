@@ -127,7 +127,6 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("enter");
             isOnGround = true;
         }
     }
@@ -137,7 +136,6 @@ public class Movement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ground"))
         {
-            Debug.Log("exit");
             isOnGround = false;
         }
     }

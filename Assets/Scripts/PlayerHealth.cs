@@ -14,14 +14,21 @@ public class PlayerHealth : MonoBehaviour
     public float lerpSpeed = 0.01f;
 
     private bool isDead = false;
-
     private Animator anim;
+
+    private PlayerEnergy playerEnergy;
 
     void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
         anim = GetComponent<Animator>();
+
+        playerEnergy = GetComponent<PlayerEnergy>();
+        if (playerEnergy == null)
+        {
+            Debug.LogError("PlayerEnergy component not found on the player!");
+        }
     }
 
     void Update()
@@ -36,7 +43,6 @@ public class PlayerHealth : MonoBehaviour
     /// <param name="damageAmount">Amount of damage to apply.</param>
     public void TakeDamage(float damageAmount)
     {
-        anim.SetBool("IsDead", true);
         if (isDead)
             return;
 
@@ -73,19 +79,18 @@ public class PlayerHealth : MonoBehaviour
 
         isDead = true;
 
-        // TODO: Handle death (play animation, disable controls, etc.)
-
         anim.SetBool("IsDead", isDead);
+
+        if (playerEnergy != null)
+        {
+            playerEnergy.SetEnergyToZero();
+        }
 
         CameraScroll cameraScroll = Camera.main.GetComponent<CameraScroll>();
         if (cameraScroll != null)
         {
             cameraScroll.StopScrolling();
         }
-
-        StartCoroutine(ShowEndGamePanelAfterDelay());
-
-        // Optionally, disable player controls here
     }
 
     private IEnumerator ShowEndGamePanelAfterDelay()
@@ -125,5 +130,26 @@ public class PlayerHealth : MonoBehaviour
         {
             InstantDeath();
         }
+    }
+
+    public bool IsDead()
+    {
+        return isDead;
+    }
+
+    public void OnDeathAnimationComplete()
+    {
+        Time.timeScale = 0f;
+        UIManager.Instance.ShowEndGamePanel("Game Over!");
+    }
+
+    public void RestoreHealth(float amount)
+    {
+        if (isDead)
+            return;
+
+        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+        UpdateHealthUI();
     }
 }

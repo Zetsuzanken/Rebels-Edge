@@ -12,7 +12,9 @@ public class LevelEnd : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            UIManager.Instance.ShowEndGamePanel("Level Completed!");
+            Time.timeScale = 0f;
+
+            UIManager.Instance.ShowEndGamePanel("Heist Successful!");
 
             CameraScroll cameraScroll = Camera.main.GetComponent<CameraScroll>();
             if (cameraScroll != null)
