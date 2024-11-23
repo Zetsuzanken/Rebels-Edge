@@ -3485,7 +3485,6 @@ MonoBehaviour:
   jumpHeight: 3
   jumpDuration: 0.5
   jumpCooldown: 0.1
-  isJumping: 0
 --- !u!95 &911119195
 Animator:
   serializedVersion: 5

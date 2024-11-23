@@ -7,6 +7,8 @@ public class ArcherAttack : MonoBehaviour
     public GameObject player;
     public float shootInterval = 2f;
     public float detectionRadius = 5f;
+    public GameObject arrowPrefab;
+    public Transform arrowSpawnPoint;
 
     private Animator animator;
     private bool isPlayerInRange = false;
@@ -41,9 +43,6 @@ public class ArcherAttack : MonoBehaviour
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
 
-            Debug.Log(direction.y + " y");
-            Debug.Log(direction.x + " x");
-
             if (direction.x > 0) // Shooting right
             {
                 if (transform.localScale.x < 0)
@@ -75,6 +74,11 @@ public class ArcherAttack : MonoBehaviour
                 else
                     animator.SetTrigger("shootRight");
             }
+
+            yield return new WaitForSeconds(1f);
+
+            SpawnArrow();
+
             animator.SetTrigger("Idle");
 
             yield return new WaitForSeconds(shootInterval);
@@ -83,10 +87,28 @@ public class ArcherAttack : MonoBehaviour
         isShooting = false;
     }
 
+    private void SpawnArrow()
+    {
+        if (player == null) return;
+
+        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, Quaternion.identity);
+        ArrowProjectile arrowScript = arrow.GetComponent<ArrowProjectile>();
+        if (arrowScript != null)
+        {
+            arrowScript.SetTarget(player.transform.position);
+        }
+    }
+
     private void Flip()
     {
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

@@ -20,7 +20,7 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 2f;
     public float jumpDuration = 0.5f;
     public float jumpCooldown = 1f; 
-    public bool isJumping = false;
+    private bool isJumping = false;
     private bool canJump = true;
 
     private LevelEnd LevelEnd;

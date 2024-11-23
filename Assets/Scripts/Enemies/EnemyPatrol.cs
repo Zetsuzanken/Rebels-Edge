@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class EnemyPatrol : MonoBehaviour
 {
+    [Header("Points")]
     public GameObject pointA;
     public GameObject pointB;
     public float speed;
     public GameObject player;
+    public float detectionRadius = 5f;
+
+    [Header("Damage")]
+    public float damage = 1;
+    public float damageCooldown = 2f;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -15,6 +21,8 @@ public class EnemyPatrol : MonoBehaviour
     private bool detectedPlayer;
     private bool returningToPatrol;
     private Vector2 direction;
+    private bool isPlayerInRange = false;
+    private float lastDamageTime = -Mathf.Infinity;
 
     void Start()
     {
@@ -28,6 +36,8 @@ public class EnemyPatrol : MonoBehaviour
 
     void Update()
     {
+        CheckPlayerDistance();
+
         if (detectedPlayer)
         {
             FollowPlayer();
@@ -42,6 +52,17 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    private void CheckPlayerDistance()
+    {
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        isPlayerInRange = distance <= detectionRadius;
+
+        if (isPlayerInRange) 
+        {
+            detectedPlayer = true;
+        }
+    }
+
     private void FollowPlayer()
     {
         float distance = Vector2.Distance(transform.position, player.transform.position);
@@ -50,6 +71,11 @@ public class EnemyPatrol : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("isRunning", false);
+
+            if (Time.time >= lastDamageTime + damageCooldown)
+            {
+                DealDamageToPlayer();
+            }
         }
         else
         {
@@ -99,11 +125,20 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
+    private void DealDamageToPlayer()
+    {
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(damage);
+            lastDamageTime = Time.time;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == player)
         {
-            detectedPlayer = true;
             returningToPatrol = false;
         }
     }
@@ -130,5 +165,8 @@ public class EnemyPatrol : MonoBehaviour
         Gizmos.DrawWireSphere(pointA.transform.position, 0.5f);
         Gizmos.DrawWireSphere(pointB.transform.position, 0.5f);
         Gizmos.DrawLine(pointA.transform.position, pointB.transform.position);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
