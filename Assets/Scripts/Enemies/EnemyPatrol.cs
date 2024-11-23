@@ -61,6 +61,10 @@ public class EnemyPatrol : MonoBehaviour
         {
             detectedPlayer = true;
         }
+        if (returningToPatrol)
+        {
+            detectedPlayer = false;
+        }
     }
 
     private void FollowPlayer()
