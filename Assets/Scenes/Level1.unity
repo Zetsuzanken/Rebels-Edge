@@ -818,6 +818,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &54094769
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 54094770}
+  m_Layer: 0
+  m_Name: CollapsingRoofs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &54094770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54094769}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.955513, y: 6.1057863, z: -0.040716134}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 731851680}
+  - {fileID: 1891861511}
+  - {fileID: 1886399820}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &71686187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1316,6 +1350,71 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1001 &265745281
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 54094770}
+    m_Modifications:
+    - target: {fileID: 2002581921033853951, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_Name
+      value: CollapsingRoof (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435062347384300309, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 911119187}
+    - target: {fileID: 3435062347384300309, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: boxCollider
+      value: 
+      objectReference: {fileID: 731851681}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.3455133
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.2857862
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.040716134
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
 --- !u!1 &306262191
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,6 +2886,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c8b347c75e2af64fad4c5689659c021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &731851680 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+  m_PrefabInstance: {fileID: 265745281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &731851681 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4332156971082543892, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+  m_PrefabInstance: {fileID: 265745281}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &746311503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6865,6 +6974,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661052473}
   m_CullTransparentMesh: 1
+--- !u!1001 &1666653302
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 54094770}
+    m_Modifications:
+    - target: {fileID: 2002581921033853951, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_Name
+      value: CollapsingRoof
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435062347384300309, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 911119187}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.27551293
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.7242136
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.040716134
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
 --- !u!1 &1738805720
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,6 +7276,16 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!4 &1886399820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+  m_PrefabInstance: {fileID: 1666653302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1891861511 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+  m_PrefabInstance: {fileID: 799450633660304158}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1983059881
 GameObject:
   m_ObjectHideFlags: 0
@@ -7925,6 +8105,67 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &799450633660304158
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 54094770}
+    m_Modifications:
+    - target: {fileID: 2002581921033853951, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_Name
+      value: CollapsingRoof
+      objectReference: {fileID: 0}
+    - target: {fileID: 3435062347384300309, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 911119187}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.664487
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.3757863
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.040716134
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7981935073170252053, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b398b5a0d5de8848b244ca0a51ebe89, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7941,3 +8182,4 @@ SceneRoots:
   - {fileID: 1056031079}
   - {fileID: 1283509631}
   - {fileID: 893690251}
+  - {fileID: 54094770}
