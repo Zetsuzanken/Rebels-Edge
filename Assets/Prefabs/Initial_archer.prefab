@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 3775082887444511952}
   - component: {fileID: 6233479109746086254}
   - component: {fileID: 8772218442399654505}
+  - component: {fileID: 7985837103062209707}
   m_Layer: 0
-  m_Name: Archer
+  m_Name: Initial_archer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 1738036351, guid: bc4abeaf1aa27c74f9cfaefd2e5ff96e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -186,3 +187,18 @@ MonoBehaviour:
   player: {fileID: 0}
   shootInterval: 2
   detectionRadius: 5
+  arrowPrefab: {fileID: 8234121991168770456, guid: dac6632ac6bd0344191171012ddc7c01, type: 3}
+  arrowSpawnPoint: {fileID: 0}
+--- !u!114 &7985837103062209707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4468226923907223836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837d31492e2201343a7dbb9865b3b670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0

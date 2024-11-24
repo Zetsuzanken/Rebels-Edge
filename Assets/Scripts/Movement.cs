@@ -123,6 +123,11 @@ public class Movement : MonoBehaviour
         rb.velocity = moveVelocity;
     }
 
+    public bool IsJumping()
+    {
+        return isJumping;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
