@@ -23,6 +23,7 @@ public class EnemyPatrol : MonoBehaviour
     private Vector2 direction;
     private bool isPlayerInRange = false;
     private float lastDamageTime = -Mathf.Infinity;
+    private EnemiesHealth enemiesHealth;
 
     void Start()
     {
@@ -32,10 +33,17 @@ public class EnemyPatrol : MonoBehaviour
         anim = GetComponent<Animator>();
         currentPoint = pointB.transform;
         anim.SetBool("isRunning", true);
+        enemiesHealth = GetComponent<EnemiesHealth>();
     }
 
     void Update()
     {
+        if (enemiesHealth.IsDead())
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+
         CheckPlayerDistance();
 
         if (detectedPlayer)
@@ -95,7 +103,7 @@ public class EnemyPatrol : MonoBehaviour
         }
     }
 
-    private void PatrolBetweenPoints()
+    private void PatrolBetweenPoints() 
     {
         if ((currentPoint == pointB.transform && transform.localScale.x < 0) ||
         (currentPoint == pointA.transform && transform.localScale.x > 0))

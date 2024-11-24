@@ -13,14 +13,21 @@ public class ArcherAttack : MonoBehaviour
     private Animator animator;
     private bool isPlayerInRange = false;
     private bool isShooting = false;
+    private EnemiesHealth enemiesHealth;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        enemiesHealth = GetComponent<EnemiesHealth>();
     }
 
     void Update()
     {
+        if (enemiesHealth.IsDead())
+        {
+            return;
+        }
+
         CheckPlayerDistance();
 
         if (isPlayerInRange && !isShooting)
@@ -39,7 +46,7 @@ public class ArcherAttack : MonoBehaviour
     {
         isShooting = true;
 
-        while (isPlayerInRange)
+        while (isPlayerInRange && !enemiesHealth.IsDead())
         {
             Vector2 direction = (player.transform.position - transform.position).normalized;
 
