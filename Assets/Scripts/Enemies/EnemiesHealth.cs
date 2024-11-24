@@ -48,7 +48,6 @@ public class EnemiesHealth : MonoBehaviour
 
     public IEnumerator DestroyAfterDelay(float delay)
     {
-        Debug.Log("DEAD");
         yield return new WaitForSeconds(delay);
         Destroy(gameObject);
     }

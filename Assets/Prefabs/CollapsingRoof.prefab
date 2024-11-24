@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4332156971082543892}
   m_Layer: 0
   m_Name: CollapsingRoof
-  m_TagString: Untagged
+  m_TagString: BrokenRoof
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

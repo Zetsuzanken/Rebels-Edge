@@ -26,6 +26,7 @@ public class Movement : MonoBehaviour
     private LevelEnd LevelEnd;
 
     private PlayerHealth playerHealth;
+    private RoofCollapse roofCollapse;
 
     private bool isOnGround = true;
 
