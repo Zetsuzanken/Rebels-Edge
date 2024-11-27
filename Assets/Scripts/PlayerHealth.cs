@@ -18,6 +18,11 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerEnergy playerEnergy;
 
+    [Header("Audio Settings")]
+    public AudioSource audioSource;         // AudioSource komponent
+    public AudioClip damageSound;           // Heli vigastuse jaoks
+    public AudioClip deathSound;            // Heli surma jaoks
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -28,6 +33,11 @@ public class PlayerHealth : MonoBehaviour
         if (playerEnergy == null)
         {
             Debug.LogError("PlayerEnergy component not found on the player!");
+        }
+
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>(); // Oletame, et AudioSource on sama objektiga
         }
     }
 
@@ -49,6 +59,9 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         UpdateHealthUI();
+
+        // Mängi vigastuse heli
+        PlayDamageSound();
 
         if (currentHealth <= 0f)
         {
@@ -81,6 +94,9 @@ public class PlayerHealth : MonoBehaviour
 
         anim.SetBool("IsDead", isDead);
 
+        // Mängi surma heli
+        PlayDeathSound();
+
         if (playerEnergy != null)
         {
             playerEnergy.SetEnergyToZero();
@@ -91,6 +107,8 @@ public class PlayerHealth : MonoBehaviour
         {
             cameraScroll.StopScrolling();
         }
+
+        StartCoroutine(ShowEndGamePanelAfterDelay());
     }
 
     private IEnumerator ShowEndGamePanelAfterDelay()
@@ -151,5 +169,23 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         UpdateHealthUI();
+    }
+
+    // Mängib vigastuse heli
+    private void PlayDamageSound()
+    {
+        if (audioSource != null && damageSound != null)
+        {
+            audioSource.PlayOneShot(damageSound);
+        }
+    }
+
+    // Mängib surma heli
+    private void PlayDeathSound()
+    {
+        if (audioSource != null && deathSound != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
     }
 }

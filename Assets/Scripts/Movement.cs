@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using Unity;
 
 public class Movement : MonoBehaviour
 {
@@ -19,7 +17,7 @@ public class Movement : MonoBehaviour
     public float jumpScale = 1.5f;
     public float jumpHeight = 2f;
     public float jumpDuration = 0.5f;
-    public float jumpCooldown = 1f; 
+    public float jumpCooldown = 1f;
     private bool isJumping = false;
     private bool canJump = true;
 
@@ -34,17 +32,31 @@ public class Movement : MonoBehaviour
     private bool isAgainstImpassableBarrier;
     private bool isNearBarrier = false;
 
+    private AudioSource audioSource; // Üks AudioSource kõigile helidele
+    private AudioSource deathAudioSource; // Eraldi AudioSource surma heli jaoks
+
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
+
+    private bool isWalking = false;
+
+    private bool hasPlayedDeathSound = false; // Lisatud lipp surma heli kordumise vältimiseks
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         playerHealth = GetComponent<PlayerHealth>();
         barrier = FindObjectOfType<Barrier>();
+        audioSource = GetComponent<AudioSource>(); // Kõikide helide jaoks üks AudioSource
+        deathAudioSource = gameObject.AddComponent<AudioSource>(); // Eraldi AudioSource surma heli jaoks
+        deathAudioSource.volume = 1f; // Surma heli helitugevus
     }
 
     public void SetBarrierState(bool isBlocked)
     {
-        isAgainstImpassableBarrier = isBlocked; 
+        isAgainstImpassableBarrier = isBlocked;
     }
 
     public void SetBarrierStatus(bool status)
@@ -57,22 +69,27 @@ public class Movement : MonoBehaviour
     {
         ProcessInputs();
         Animate();
-        if(input.x < 0 && !facingLeft || input.x > 0 && facingLeft && playerHealth.currentHealth > 0)
+
+        if (input.x < 0 && !facingLeft || input.x > 0 && facingLeft && playerHealth.currentHealth > 0)
         {
             Flip();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump) 
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
             StartCoroutine(Jump());
         }
-
 
         if (!isOnGround && !isJumping)
         {
             playerHealth.InstantDeath();
         }
 
+        if (playerHealth.currentHealth <= 0 && !hasPlayedDeathSound)
+        {
+            PlayDeathSound();
+            hasPlayedDeathSound = true; // Surmaheli mängitakse ainult üks kord
+        }
     }
 
     public void FixedUpdate()
@@ -81,13 +98,12 @@ public class Movement : MonoBehaviour
 
         moveVelocity = input * currentSpeed;
 
-     
         if (isJumping)
         {
             moveVelocity.y = rb.velocity.y;
         }
 
-        if (playerHealth.currentHealth <= 0) 
+        if (playerHealth.currentHealth <= 0)
         {
             moveVelocity = Vector2.zero;
             canJump = false;
@@ -111,7 +127,6 @@ public class Movement : MonoBehaviour
 
             if (dotProduct > 0)
             {
-               
                 float projection = Vector2.Dot(moveVelocity, playerToBarrier);
                 moveVelocity -= projection * playerToBarrier;
             }
@@ -122,6 +137,18 @@ public class Movement : MonoBehaviour
         }
 
         rb.velocity = moveVelocity;
+
+        // Kõndimise heli mängimine, kui liikumine toimub
+        if (input.magnitude > 0 && isOnGround && !isJumping && !audioSource.isPlaying && !isWalking)
+        {
+            isWalking = true;
+            PlayWalkSound();
+        }
+        else if (input.magnitude == 0 && isWalking)
+        {
+            isWalking = false;
+            audioSource.Stop();
+        }
     }
 
     public bool IsJumping()
@@ -139,7 +166,6 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = false;
@@ -184,6 +210,17 @@ public class Movement : MonoBehaviour
         isJumping = true;
         canJump = false;
 
+        anim.SetTrigger("Jump");
+
+        // Peatame kõik helid, kuid ei peata surma heli, kui see mängib
+        StopAllSoundsExceptDeath();
+        if (jumpSound != null)
+        {
+
+            audioSource.pitch = 1;
+            audioSource.PlayOneShot(jumpSound); // Hüppe heli mängimine kohe
+        }
+
         Vector3 originalScale = transform.localScale;
         Vector3 targetScale = originalScale * jumpScale;
         float startY = transform.position.y;
@@ -192,47 +229,68 @@ public class Movement : MonoBehaviour
         float elapsedTime = 0f;
         float halfJumpDuration = jumpDuration / 2;
 
-        // First half of the jump: scale up and move upwards
+        // Esimene pool hüpist
         while (elapsedTime < halfJumpDuration)
         {
-            // Update scale
             transform.localScale = Vector3.Lerp(originalScale, targetScale, elapsedTime / halfJumpDuration);
-
-            // Calculate the new y position
             float newY = Mathf.Lerp(startY, targetY, elapsedTime / halfJumpDuration);
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-
-            // Combine y movement with input
             transform.position += new Vector3(0, input.y * speed * Time.deltaTime, 0);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Second half of the jump: scale down and move downwards
+        // Teine pool hüpist
         elapsedTime = 0f;
         while (elapsedTime < halfJumpDuration)
         {
-            // Update scale
             transform.localScale = Vector3.Lerp(targetScale, originalScale, elapsedTime / halfJumpDuration);
-
-            // Calculate the new y position
             float newY = Mathf.Lerp(targetY, startY + input.y, elapsedTime / halfJumpDuration);
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-
-            // Combine y movement with input
             transform.position += new Vector3(0, input.y * speed * Time.deltaTime, 0);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        // Restore original scale and reset jumping state
         transform.localScale = originalScale;
         isJumping = false;
 
-        // Wait for the jump cooldown before allowing another jump
         yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
+    }
+
+    void PlayWalkSound()
+    {
+        if (walkSound != null)
+        {
+            StopAllSounds(); // Peatab kõik helid enne kõndimise heli mängimist
+            audioSource.clip = walkSound;
+            audioSource.loop = true;  // Mängib pidevalt
+            audioSource.volume = 0.5f;
+            audioSource.pitch = 2;
+            audioSource.Play();
+        }
+    }
+
+    void PlayDeathSound()
+    {
+        audioSource.pitch = 1;
+        if (deathSound != null && !deathAudioSource.isPlaying)
+        {
+            deathAudioSource.PlayOneShot(deathSound);  // Mängib ainult üks kord surma heli
+        }
+    }
+
+    void StopAllSounds()
+    {
+        audioSource.Stop();
+    }
+
+    void StopAllSoundsExceptDeath()
+    {
+        audioSource.Stop();
+        deathAudioSource.Stop();  // Kui surma heli on juba mängimas, ei peata seda
     }
 }

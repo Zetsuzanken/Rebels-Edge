@@ -1,0 +1,1171 @@
+fileFormatVersion: 2
+guid: 18f477bf331643b41a87e596f6f1e22b
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Character_WalkingRunning_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 1048
+        width: 39
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a060c40b21174d8449f5b19438cfd7dc
+      internalID: -82681993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_1
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 1051
+        width: 40
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8119c6e433917f14e9b99037dfbf0a52
+      internalID: 1730163744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_3
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 1048
+        width: 39
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9b614789cd586458dc01af75239934
+      internalID: -970005121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_4
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 1044
+        width: 39
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dd27bfa34b033243a2e8caea4d8afa4
+      internalID: -1759616129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_5
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 1051
+        width: 39
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a3e5ec1b25929c4da5f09fb8b91ea47
+      internalID: -1073579483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_6
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 1044
+        width: 39
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fb9be879256b34f8f57690a0aef542
+      internalID: 514477630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_7
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1048
+        width: 39
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c231ea6a25237a74b9ac48082fb5a8fb
+      internalID: -2008465701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_8
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1048
+        width: 40
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2e2706cef82d34b9be213eea604630
+      internalID: 1310495689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_9
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 839
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6803e9ccd64e045a1d854d77433687
+      internalID: -288973954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_10
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 839
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b06009c28c835d4eba32781510edbeb
+      internalID: -452845071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 842
+        width: 42
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2bfa6da12f817d4aaaf8230c8751b4f
+      internalID: 1545659510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_12
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 842
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82f00fc880aa4243996966d5eeac419
+      internalID: 1103130057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_13
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 839
+        width: 39
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5502ff225b313044bbf872d5050d1aa8
+      internalID: -1502473421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_14
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 835
+        width: 46
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0513f618157ea8e4b994528e3a5adb9b
+      internalID: 334522877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_15
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 835
+        width: 43
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5775f9e9216cb04ea0d661f328888a2
+      internalID: -1564214518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_16
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 835
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e019d045736ad48aded09459de1ca5
+      internalID: -1493798368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 627
+        width: 49
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e75819ad6f24d449b934223cde97f0
+      internalID: -185980325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_18
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 630
+        width: 49
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f28f6fdf3f2c248b5972bcfa653e9f
+      internalID: -817230559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_19
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 630
+        width: 49
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbd4ccedc243ad4cbaca47c0c9b05ca
+      internalID: 524330366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_20
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 630
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce47aa9dd3beee441bc286c80266a42e
+      internalID: 1390437868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_21
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 630
+        width: 52
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999b55af454276a4b9b35ef0390e86dd
+      internalID: -1928455523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_22
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 627
+        width: 49
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0adde84c8ec243a4b8071a9d23f1524f
+      internalID: 1113051381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_23
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 627
+        width: 49
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62893a2fef7daba419eef177165e7c4c
+      internalID: 1163356844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_24
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 627
+        width: 52
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff4b1e8b32eef8540bed7311dbd7be35
+      internalID: 1527799453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_25
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 418
+        width: 39
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7849f285d85ae4746a746180720202e0
+      internalID: -1253317057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_26
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 418
+        width: 39
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd6d0f356b130e44b618cf718a71ff0
+      internalID: -749391461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_27
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 418
+        width: 42
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729107de71959724a8645b4bf6b6c5ce
+      internalID: 355592465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_28
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 424
+        width: 40
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1017696bac65fbb4dbaca7dc96557483
+      internalID: 1071192071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_29
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 418
+        width: 39
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297fe745dde26724faf6bd0fd7b53390
+      internalID: 2113568617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_30
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 418
+        width: 39
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4260bc80452b44495df51abbd6cb25
+      internalID: 2007826763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_31
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 418
+        width: 43
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9040acbad56dd89448b20ba0c9ce07f9
+      internalID: -1186813440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_32
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 424
+        width: 39
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39fd7ddf2c698f941a11cb3d0693b59a
+      internalID: 436592432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_33
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 209
+        width: 49
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341a1eb8c891121468f9c7390fbaa3dc
+      internalID: -125922267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_34
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 215
+        width: 49
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a57e7a4cfff374797af9ff89c1d7eb
+      internalID: 188499267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_35
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 212
+        width: 49
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616a2929682038b47922359457a3651a
+      internalID: 1426516374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_36
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 212
+        width: 46
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62154c25f951be141a18ee43cd3835a8
+      internalID: 1178196528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_37
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 209
+        width: 53
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2155e4efbc8f84b4a9f95285131cbc3b
+      internalID: 1923179258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_38
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 199
+        width: 52
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be84fb99dadf3f64dba2b55d251563cb
+      internalID: 747216873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_39
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 209
+        width: 49
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3bdbeee6959bf04b9fb6d9eb0147f5d
+      internalID: 219934707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_40
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 209
+        width: 52
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ec202e320bbcd4682f1ca159b760e6
+      internalID: -1077252491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_41
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 3
+        width: 46
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b38faeed0a020b4eb2b2cd5b6006465
+      internalID: 967107995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_42
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3
+        width: 42
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3d7e19d00c96514c9f60511dae2aede
+      internalID: -1535591833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_43
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 7
+        width: 42
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c48035bddda4fb4ca749681da785242
+      internalID: 1938303636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_44
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 7
+        width: 43
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f826086bc420e24480c93a9c5ab127b
+      internalID: -91110041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_45
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 3
+        width: 42
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b94fa98f0058ed844a543262846cd346
+      internalID: 696825411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_46
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 0
+        width: 42
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e18eac55cbd19478dca86470a4a77b
+      internalID: -713305187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_47
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 0
+        width: 43
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fce19fd6cee3964083f42df03bea1b8
+      internalID: 1193464534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Character_WalkingRunning_48
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 0
+        width: 39
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe8b2e3134154045bb42dc017eae5e3
+      internalID: 1582665572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Character_WalkingRunning_0: -82681993
+      Character_WalkingRunning_1: 1730163744
+      Character_WalkingRunning_10: -452845071
+      Character_WalkingRunning_11: 1545659510
+      Character_WalkingRunning_12: 1103130057
+      Character_WalkingRunning_13: -1502473421
+      Character_WalkingRunning_14: 334522877
+      Character_WalkingRunning_15: -1564214518
+      Character_WalkingRunning_16: -1493798368
+      Character_WalkingRunning_17: -185980325
+      Character_WalkingRunning_18: -817230559
+      Character_WalkingRunning_19: 524330366
+      Character_WalkingRunning_2: -584417120
+      Character_WalkingRunning_20: 1390437868
+      Character_WalkingRunning_21: -1928455523
+      Character_WalkingRunning_22: 1113051381
+      Character_WalkingRunning_23: 1163356844
+      Character_WalkingRunning_24: 1527799453
+      Character_WalkingRunning_25: -1253317057
+      Character_WalkingRunning_26: -749391461
+      Character_WalkingRunning_27: 355592465
+      Character_WalkingRunning_28: 1071192071
+      Character_WalkingRunning_29: 2113568617
+      Character_WalkingRunning_3: -970005121
+      Character_WalkingRunning_30: 2007826763
+      Character_WalkingRunning_31: -1186813440
+      Character_WalkingRunning_32: 436592432
+      Character_WalkingRunning_33: -125922267
+      Character_WalkingRunning_34: 188499267
+      Character_WalkingRunning_35: 1426516374
+      Character_WalkingRunning_36: 1178196528
+      Character_WalkingRunning_37: 1923179258
+      Character_WalkingRunning_38: 747216873
+      Character_WalkingRunning_39: 219934707
+      Character_WalkingRunning_4: -1759616129
+      Character_WalkingRunning_40: -1077252491
+      Character_WalkingRunning_41: 967107995
+      Character_WalkingRunning_42: -1535591833
+      Character_WalkingRunning_43: 1938303636
+      Character_WalkingRunning_44: -91110041
+      Character_WalkingRunning_45: 696825411
+      Character_WalkingRunning_46: -713305187
+      Character_WalkingRunning_47: 1193464534
+      Character_WalkingRunning_48: 1582665572
+      Character_WalkingRunning_5: -1073579483
+      Character_WalkingRunning_6: 514477630
+      Character_WalkingRunning_7: -2008465701
+      Character_WalkingRunning_8: 1310495689
+      Character_WalkingRunning_9: -288973954
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

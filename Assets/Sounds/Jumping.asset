@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20c8312f0e691d448819b2eb1da77a9, type: 3}
+  m_Name: Jumping
+  m_EditorClassIdentifier: 
+  VolumeMin: 1
+  VolumeMax: 1
+  PitchMin: 1
+  PitchMax: 1
+  Cooldown: 0.5
+  AudioClips:
+  - {fileID: 8300000, guid: c2c48efc9aac3f3429117ee26447bd7b, type: 3}
+  - {fileID: 8300000, guid: f124755403f23d64ebddaf1a4aa0e45c, type: 3}
+  - {fileID: 8300000, guid: 06ff8e143f08f044c9df440ba6b296bc, type: 3}
+  - {fileID: 8300000, guid: ac1dfe544bc210b449f9cda25c5d7073, type: 3}
+  - {fileID: 8300000, guid: 751cdd3a56b5c444fbdf64083c64a566, type: 3}
+  - {fileID: 8300000, guid: 8747f69210cfec746b0213eb74dedf34, type: 3}
+  RandomizePitch: 0

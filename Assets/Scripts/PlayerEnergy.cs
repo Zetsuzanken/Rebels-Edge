@@ -17,6 +17,9 @@ public class PlayerEnergy : MonoBehaviour
     public Slider easeEnergySlider;
     public float lerpSpeed = 0.01f;
 
+    [Header("Animation")]
+    public Animator animator; // Reference to the Animator component
+
     private bool isSprinting = false;
     private bool isDead = false;
 
@@ -119,6 +122,10 @@ public class PlayerEnergy : MonoBehaviour
             if (currentEnergy >= meleeAttackEnergyCost)
             {
                 UseEnergy(meleeAttackEnergyCost);
+
+                // Trigger melee attack animation
+                animator.SetTrigger("Attack");
+
                 // TODO: Execute melee attack
             }
         }
