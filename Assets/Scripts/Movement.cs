@@ -20,12 +20,13 @@ public class Movement : MonoBehaviour
     public float jumpHeight = 2f;
     public float jumpDuration = 0.5f;
     public float jumpCooldown = 1f; 
-    public bool isJumping = false;
+    private bool isJumping = false;
     private bool canJump = true;
 
     private LevelEnd LevelEnd;
 
     private PlayerHealth playerHealth;
+    private RoofCollapse roofCollapse;
 
     private bool isOnGround = true;
 
@@ -121,6 +122,11 @@ public class Movement : MonoBehaviour
         }
 
         rb.velocity = moveVelocity;
+    }
+
+    public bool IsJumping()
+    {
+        return isJumping;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
