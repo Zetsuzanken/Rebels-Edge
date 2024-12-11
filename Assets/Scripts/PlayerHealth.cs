@@ -18,12 +18,13 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerEnergy playerEnergy;
 
-    [Header("Audio Settings")]
-    public AudioSource audioSource;         // AudioSource komponent
-    public AudioClip damageSound;           // Heli vigastuse jaoks
-    public AudioClip deathSound;            // Heli surma jaoks
+    [Header("Audio")]
+    public AudioClip deathClip; // Reference to the death sound
+    public float deathClipVolume = 1.0f; // Volume for the death sound
+    public AudioClip hurtClip; // Reference to the hurt sound
+    public float hurtClipVolume = 1.0f; // Volume for the hurt sound
 
-    void Start()
+    private void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
@@ -34,14 +35,9 @@ public class PlayerHealth : MonoBehaviour
         {
             Debug.LogError("PlayerEnergy component not found on the player!");
         }
-
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>(); // Oletame, et AudioSource on sama objektiga
-        }
     }
 
-    void Update()
+    private void Update()
     {
         UpdateHealthUI();
         HandleInput();
@@ -60,8 +56,15 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         UpdateHealthUI();
 
-        // Mängi vigastuse heli
-        PlayDamageSound();
+        // Play hurt sound when damage is taken
+        if (hurtClip != null)
+        {
+            AudioSource.PlayClipAtPoint(hurtClip, transform.position, hurtClipVolume);
+        }
+        else
+        {
+            Debug.LogWarning("Hurt audio clip not assigned!");
+        }
 
         if (currentHealth <= 0f)
         {
@@ -94,8 +97,15 @@ public class PlayerHealth : MonoBehaviour
 
         anim.SetBool("IsDead", isDead);
 
-        // Mängi surma heli
-        PlayDeathSound();
+        // Play death sound with volume control
+        if (deathClip != null)
+        {
+            AudioSource.PlayClipAtPoint(deathClip, transform.position, deathClipVolume);
+        }
+        else
+        {
+            Debug.LogWarning("Death audio clip not assigned!");
+        }
 
         if (playerEnergy != null)
         {
@@ -169,23 +179,5 @@ public class PlayerHealth : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         UpdateHealthUI();
-    }
-
-    // Mängib vigastuse heli
-    private void PlayDamageSound()
-    {
-        if (audioSource != null && damageSound != null)
-        {
-            audioSource.PlayOneShot(damageSound);
-        }
-    }
-
-    // Mängib surma heli
-    private void PlayDeathSound()
-    {
-        if (audioSource != null && deathSound != null)
-        {
-            audioSource.PlayOneShot(deathSound);
-        }
     }
 }
