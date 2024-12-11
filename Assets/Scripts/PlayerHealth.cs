@@ -18,7 +18,13 @@ public class PlayerHealth : MonoBehaviour
 
     private PlayerEnergy playerEnergy;
 
-    void Start()
+    [Header("Audio")]
+    public AudioClip deathClip; // Reference to the death sound
+    public float deathClipVolume = 1.0f; // Volume for the death sound
+    public AudioClip hurtClip; // Reference to the hurt sound
+    public float hurtClipVolume = 1.0f; // Volume for the hurt sound
+
+    private void Start()
     {
         currentHealth = maxHealth;
         UpdateHealthUI();
@@ -31,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         UpdateHealthUI();
         HandleInput();
@@ -49,6 +55,16 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damageAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
         UpdateHealthUI();
+
+        // Play hurt sound when damage is taken
+        if (hurtClip != null)
+        {
+            AudioSource.PlayClipAtPoint(hurtClip, transform.position, hurtClipVolume);
+        }
+        else
+        {
+            Debug.LogWarning("Hurt audio clip not assigned!");
+        }
 
         if (currentHealth <= 0f)
         {
@@ -81,6 +97,16 @@ public class PlayerHealth : MonoBehaviour
 
         anim.SetBool("IsDead", isDead);
 
+        // Play death sound with volume control
+        if (deathClip != null)
+        {
+            AudioSource.PlayClipAtPoint(deathClip, transform.position, deathClipVolume);
+        }
+        else
+        {
+            Debug.LogWarning("Death audio clip not assigned!");
+        }
+
         if (playerEnergy != null)
         {
             playerEnergy.SetEnergyToZero();
@@ -91,6 +117,8 @@ public class PlayerHealth : MonoBehaviour
         {
             cameraScroll.StopScrolling();
         }
+
+        StartCoroutine(ShowEndGamePanelAfterDelay());
     }
 
     private IEnumerator ShowEndGamePanelAfterDelay()

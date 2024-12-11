@@ -13,9 +13,29 @@ public class CameraScroll : MonoBehaviour
     private GameObject player;
     private PlayerHealth playerHealth;
     private Collider2D playerCollider;
+    public AudioClip levelStartClip;
+
+    // Position to play the sound (default is the object's position)
+    public Vector3 soundPosition;
 
     void Start()
     {
+        if (soundPosition == Vector3.zero)
+        {
+            soundPosition = transform.position;
+        }
+
+        // Check if the AudioClip is assigned
+        if (levelStartClip != null)
+        {
+            // Play the clip at the specified position
+            AudioSource.PlayClipAtPoint(levelStartClip, soundPosition);
+        }
+        else
+        {
+            Debug.LogWarning("No AudioClip assigned for level start sound!");
+        }
+
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
