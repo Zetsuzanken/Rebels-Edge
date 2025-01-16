@@ -323,14 +323,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.7237177, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4a8aab922a97c224d8a8a440c3a977a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7b6f1421e6f9e4a4fbccd085d4abfc37, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2016,7 +2016,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSelectSound: {fileID: 8300000, guid: a6221d9be5fddbd4a9822ad57e293ade, type: 3}
-  audioSource: {fileID: 1113965284}
 --- !u!1 &1971891773
 GameObject:
   m_ObjectHideFlags: 0
