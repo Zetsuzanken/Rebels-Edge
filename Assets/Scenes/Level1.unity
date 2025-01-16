@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be681e1408ee29747a73bdc99d5b22ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   scrollSpeed: 0.75
 --- !u!4 &18460130 stripped
 Transform:
@@ -496,6 +497,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1630933866}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+=======
+  scrollSpeed: 1
+  levelStartClip: {fileID: 8300000, guid: 36e9a85d6306f4fa0aaafc91aa98bb23, type: 3}
+  soundPosition: {x: 0, y: 0, z: 0}
+>>>>>>> 0189505cbf0e4a11d127069a7397ae37ca3633f6
 --- !u!1 &31843743
 GameObject:
   m_ObjectHideFlags: 0
@@ -9521,6 +9527,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 3840899866227770968, guid: 1060dfb65563e8e41849c190191a56af, type: 3}
       propertyPath: m_Color.b
       value: 0.9150943
@@ -9533,6 +9540,12 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.9150943
       objectReference: {fileID: 0}
+=======
+    - target: {fileID: 369965273067460066, guid: 1060dfb65563e8e41849c190191a56af, type: 3}
+      propertyPath: powerUpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2949092f4ba064b58b2b73e4505d71e2, type: 3}
+>>>>>>> 0189505cbf0e4a11d127069a7397ae37ca3633f6
     - target: {fileID: 4508101254037291759, guid: 1060dfb65563e8e41849c190191a56af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.51
@@ -24950,6 +24963,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 746311505}
     - target: {fileID: 2240207012999156310, guid: af698c80928001d4d8407752adf53a28, type: 3}
+      propertyPath: hurtClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a552aa9a26e2be54fa025688da1b6b1d, type: 3}
+    - target: {fileID: 2240207012999156310, guid: af698c80928001d4d8407752adf53a28, type: 3}
+      propertyPath: deathClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8c286b06c42b483428a5a075e739bf67, type: 3}
+    - target: {fileID: 2240207012999156310, guid: af698c80928001d4d8407752adf53a28, type: 3}
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: a452f79c014f7974b953999d6b154032, type: 3}
@@ -25017,6 +25038,10 @@ PrefabInstance:
       propertyPath: deathSound
       value: 
       objectReference: {fileID: 8300000, guid: a452f79c014f7974b953999d6b154032, type: 3}
+    - target: {fileID: 4347550165888059390, guid: af698c80928001d4d8407752adf53a28, type: 3}
+      propertyPath: jumpCooldown
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6034770604996780263, guid: af698c80928001d4d8407752adf53a28, type: 3}
       propertyPath: m_Name
       value: Player
