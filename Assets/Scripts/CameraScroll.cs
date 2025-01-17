@@ -14,6 +14,9 @@ public class CameraScroll : MonoBehaviour
     private PlayerHealth playerHealth;
     private Collider2D playerCollider;
 
+    public float outOfViewTimeAllowance = 2.0f;
+    private float outOfViewTimer = 0f;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -55,7 +58,16 @@ public class CameraScroll : MonoBehaviour
 
         if (!GeometryUtility.TestPlanesAABB(planes, playerCollider.bounds))
         {
-            playerHealth.InstantDeath();
+            outOfViewTimer += Time.deltaTime;
+
+            if (outOfViewTimer >= outOfViewTimeAllowance)
+            {
+                playerHealth.InstantDeath();
+            }
+        }
+        else
+        {
+            outOfViewTimer = 0f;
         }
     }
 }

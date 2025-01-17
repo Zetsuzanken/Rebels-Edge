@@ -43,6 +43,10 @@ public class Movement : MonoBehaviour
 
     private bool hasPlayedDeathSound = false; // Lisatud lipp surma heli kordumise vältimiseks
 
+    public float coyoteTimeDuration = 0.2f;
+    private float coyoteTimer = 0f;
+    private bool coyoteActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,14 +79,38 @@ public class Movement : MonoBehaviour
             Flip();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump)
+        if (!isOnGround)
         {
-            StartCoroutine(Jump());
+            if (coyoteActive)
+            {
+                if (input.magnitude <= 0f)
+                {
+                    playerHealth.InstantDeath();
+                    return;
+                }
+
+                coyoteTimer -= Time.deltaTime;
+                if (coyoteTimer <= 0f)
+                {
+                    playerHealth.InstantDeath();
+                }
+            }
+        }
+        else
+        {
+            coyoteActive = false;
+            coyoteTimer = 0f;
         }
 
-        if (!isOnGround && !isJumping)
+        if (Input.GetKeyDown(KeyCode.Space) && canJump)
         {
-            playerHealth.InstantDeath();
+            if (coyoteActive)
+            {
+                coyoteActive = false;
+                coyoteTimer = 0f;
+            }
+
+            StartCoroutine(Jump());
         }
 
         if (playerHealth.currentHealth <= 0 && !hasPlayedDeathSound)
@@ -161,6 +189,8 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            coyoteActive = false;
+            coyoteTimer = 0f;
         }
     }
 
@@ -169,6 +199,12 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = false;
+
+            if (!isJumping)
+            {
+                coyoteActive = true;
+                coyoteTimer = coyoteTimeDuration;
+            }
         }
     }
 
@@ -261,6 +297,11 @@ public class Movement : MonoBehaviour
 
         transform.localScale = originalScale;
         isJumping = false;
+
+        if (!isOnGround)
+        {
+            playerHealth.InstantDeath();
+        }
 
         yield return new WaitForSeconds(jumpCooldown);
         canJump = true;
