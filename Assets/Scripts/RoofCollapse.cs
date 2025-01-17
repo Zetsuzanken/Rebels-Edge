@@ -36,7 +36,12 @@ public class RoofCollapse : MonoBehaviour
     {
         anim.SetTrigger("Explosion");
         PlayCollapseSound();  // Mängib kokkuvarisemise heli
-        Destroy(player);
+
+        // Kontrollige, kas player on ikka olemas enne selle hävitamist
+        if (player != null)
+        {
+            Destroy(player);
+        }
     }
 
     public void PlayCollapseSound()

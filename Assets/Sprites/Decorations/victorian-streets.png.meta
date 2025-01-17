@@ -231,7 +231,7 @@ TextureImporter:
         width: 57
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,6 +239,69 @@ TextureImporter:
       bones: []
       spriteID: a08adcb8aa854564ab66e574614acbe8
       internalID: 216607516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: victorian-streets_0
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 3008
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 292eba8d37877934fb89f38da7f91988
+      internalID: 1433282632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: victorian-streets_1
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 3015
+        width: 11
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36accd152cc2a3647bb9e4d416e3bca5
+      internalID: 26713439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: victorian-streets_2
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 2
+        width: 61
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1377784c7545ff4199a77b40004bdca
+      internalID: -30805104
       vertices: []
       indices: 
       edges: []
@@ -261,6 +324,9 @@ TextureImporter:
       Sewer_2: -598386196
       Sign: 1110530625
       Sign_2: 216607516
+      victorian-streets_0: 1433282632
+      victorian-streets_1: 26713439
+      victorian-streets_2: -30805104
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
